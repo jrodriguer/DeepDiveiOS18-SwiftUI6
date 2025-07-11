@@ -83,7 +83,6 @@ rangeDivisibleByD(number: 8, min: 1, max: 4)
  */
 
 func powerFunc(base: Int, power: Int) -> Int? {
-//    guard power > 0 else { return nil }
     var result: Int?
     
     if power < 0 {

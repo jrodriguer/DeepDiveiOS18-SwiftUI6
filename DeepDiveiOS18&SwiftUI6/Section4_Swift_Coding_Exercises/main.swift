@@ -46,7 +46,7 @@ Create a function
  Example 2. For divisibleByD( number: 12, divisor: 5) returns the string:
  "I am 12 and I am not divisible by 5."
  */
-func divisibleByD( number: Int, divisor: Int) -> String {
+func divisibleByD(number: Int, divisor: Int) -> String {
     var result = ""
     if number % divisor == 0 {
         result = "I am \(number) and I am divisible by \(divisor)."
@@ -66,7 +66,7 @@ print(divisibleByD(number: 12, divisor: 5))
  */
 
 // Create a function
-func rangeDivisibleByD( number: Int, min: Int, max: Int) {
+func rangeDivisibleByD(number: Int, min: Int, max: Int) {
     for item in min..<max {
         let result = divisibleByD(number: number, divisor: item)
         print(result)
@@ -81,3 +81,34 @@ rangeDivisibleByD(number: 8, min: 1, max: 4)
  I am 8 and I am not divisible by 3.
  
  */
+
+func powerFunc(base: Int, power: Int) -> Int? {
+//    guard power > 0 else { return nil }
+    var result: Int?
+    
+    if power < 0 {
+        result = nil
+    } else if base == 0 || base == 1 {
+        result = base
+    } else {
+        var value = 1
+        for _ in 0..<power {
+            value *= base
+        }
+        result = value
+    }
+    return result
+}
+
+func displayPowerValue(base: Int, power: Int) {
+    if let result = powerFunc(base: base, power: power) {
+        print("\(base) raised to the power of \(power) is \(result)")
+    } else {
+        print("Power cannot be negative")
+    }
+}
+displayPowerValue(base: 5, power: 3)
+displayPowerValue(base: 0, power: 7)
+displayPowerValue(base: -2, power: 5)
+displayPowerValue(base: 1, power: 666)
+displayPowerValue(base: 2, power: -5)

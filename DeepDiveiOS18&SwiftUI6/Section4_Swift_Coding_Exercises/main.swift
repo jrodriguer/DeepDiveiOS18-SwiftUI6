@@ -7,19 +7,6 @@
 
 import Foundation
 
-/*
- 1. Create a function
-
- func divisibleBy7( number: Int) -> String
-
- In case the number is divisible by 7, the program should return
-
- I am <number> and I am divisible by 7
- ---
- Example 1. For divisibleBy7( number: 49) returns the string: "I am 49 and I am divisible by 7."
-
- Example 2. For divisibleBy7( number: -17)returns the string: "I am -17 and I am not divisible by 7."
- */
 func divisibleBy7(number: Int) -> String {
     var result = ""
     if number % 7 == 0 {
@@ -29,23 +16,12 @@ func divisibleBy7(number: Int) -> String {
     }
     return result
 }
+
 print(divisibleBy7(number: 49))
 print(divisibleBy7(number: -17))
 print(divisibleBy7(number: -7))
 print(divisibleBy7(number: 0))
 
-/*
-Create a function
- func divisibleByD( number: Int, divisor: Int) -> String {
-     // TODO
- }
- where
- Example 1. For divisibleByD( number: 12, divisor: 4) returns the string:
- "I am 12 and I am divisible by 4."
-
- Example 2. For divisibleByD( number: 12, divisor: 5) returns the string:
- "I am 12 and I am not divisible by 5."
- */
 func divisibleByD(number: Int, divisor: Int) -> String {
     var result = ""
     if number % divisor == 0 {
@@ -55,17 +31,10 @@ func divisibleByD(number: Int, divisor: Int) -> String {
     }
     return result
 }
+
 print(divisibleByD(number: 12, divisor: 4))
 print(divisibleByD(number: 12, divisor: 5))
 
-/*
- Create a function
- func rangeDivisibleByD( number: Int, min: Int, max: Int)
- 
- Applies divisibleByD for values of divisor from min to max-1 (i.e. do not include max) and prints the string in each iteration. The function rangeDivisibleByD does not return any values
- */
-
-// Create a function
 func rangeDivisibleByD(number: Int, min: Int, max: Int) {
     for item in min..<max {
         let result = divisibleByD(number: number, divisor: item)
@@ -73,14 +42,6 @@ func rangeDivisibleByD(number: Int, min: Int, max: Int) {
     }
 }
 rangeDivisibleByD(number: 8, min: 1, max: 4)
-/*
- Example. For rangeDivisibleByD( number: 8, min: 1, max: 4)
- prints
- I am 8 and I am divisible by 1.
- I am 8 and I am divisible by 2.
- I am 8 and I am not divisible by 3.
- 
- */
 
 func powerFunc(base: Int, power: Int) -> Int? {
     var result: Int?
@@ -106,8 +67,69 @@ func displayPowerValue(base: Int, power: Int) {
         print("Power cannot be negative")
     }
 }
+
 displayPowerValue(base: 5, power: 3)
 displayPowerValue(base: 0, power: 7)
 displayPowerValue(base: -2, power: 5)
 displayPowerValue(base: 1, power: 666)
 displayPowerValue(base: 2, power: -5)
+
+func sumOfPower(n: Int, power: Int) -> Int? {
+    if n < 0 || power < 0 {
+        return nil
+    } else {
+        var sum = 0
+        for j in 1...n {
+            if let value = powerFunc(base: j, power: power) {
+                sum += value
+            } else {
+                return nil
+            }
+        }
+        return sum
+    }
+}
+
+func displaySumOfPower(base: Int, power: Int) {
+    if let result = sumOfPower(n: base, power: power) {
+        print("Sum of \(base) raised to the power of \(power) from 1 to \(base) is \(result)")
+    } else {
+        print("Please enter positive values for n and power")
+    }
+}
+
+displaySumOfPower(base: 5, power: 3)
+displayPowerValue(base: 0, power: 7)
+displayPowerValue(base: -2, power: 5)
+displayPowerValue(base: 2, power: -5)
+
+func countOccurences(list: [Int], countMe: Int) -> (occurences: Int, msg: String) {
+    var count = 0
+    var message = ""
+    for value in list {
+        if countMe == value {
+            count += 1
+        }
+    }
+    
+    if count == 0 {
+        message = "\(countMe) is not on the list."
+    } else {
+        message = "\(countMe) appears \(count) time\(count > 1 ? "s" : "") on the list."
+    }
+    
+    return (count, message)
+}
+
+print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: 1000))
+print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: 11))
+print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: 10))
+print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: -3))
+
+func repChar(n: Int, ch: String) -> String {
+    return ""
+}
+
+func rectCharStroken(n: Int, ch: String = "*") -> String {
+    return ""
+}

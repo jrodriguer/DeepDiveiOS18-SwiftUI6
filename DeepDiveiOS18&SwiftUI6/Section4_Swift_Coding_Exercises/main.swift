@@ -155,3 +155,28 @@ print("Repeat char: \(repChar(n: 5, ch: "*"))")
 print("Rect char stroken: \(rectCharStroken(n: 5))")
 print("Rect char stroken: \(rectCharStroken(n: 1))")
 
+func sumNPower(n: Int, power: Int) -> Double {
+    var result = 0.0
+    for i in 0...n {
+        result += pow(Double(i), Double(power))
+    }
+    
+    return result
+}
+
+func triangleNumbersSquared(n: Int) -> Double {
+    // 1ˆ3 + 2ˆ3 + 3ˆ3 + ... + nˆ3
+    let triangleNumber = sumNPower(n: n, power: 1)
+    return triangleNumber*triangleNumber
+}
+
+func sumOfCubes(n: Int) -> Double {
+    // (1 + 2 + 3 + ... + n)ˆ2
+    return sumNPower(n: n, power: 3)
+}
+
+for n in 1..<10 {
+    print(triangleNumbersSquared(n: n))
+    print(sumOfCubes(n: n))
+    print("")
+}

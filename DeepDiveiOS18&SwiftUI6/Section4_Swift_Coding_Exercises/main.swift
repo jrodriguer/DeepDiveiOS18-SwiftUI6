@@ -146,7 +146,7 @@ func rectCharStroken(n: Int, ch: String = "*") -> String {
     for _ in 0..<n-2 {
         result += "\(ch)\(repChar(n: n-2, ch: " "))\(ch)\n"
     }
-    result += "\(repChar(n: n, ch: ch))\n"
+    result += "\(repChar(n: n, ch: ch))"
     
     return result
 }

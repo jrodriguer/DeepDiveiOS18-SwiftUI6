@@ -127,9 +127,31 @@ print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: 10))
 print(countOccurences(list: [1001, 11, 10, -3, 11, -3], countMe: -3))
 
 func repChar(n: Int, ch: String) -> String {
-    return ""
+    var result = ""
+    if n < 0 {
+        return result
+    }
+    for _ in 0..<n {
+        result += ch
+    }
+    return result
 }
 
 func rectCharStroken(n: Int, ch: String = "*") -> String {
-    return ""
+    var result = ""
+    if n == 1 {
+        return ch
+    }
+    result += "\n\(repChar(n: n, ch: ch))\n"
+    for _ in 0..<n-2 {
+        result += "\(ch)\(repChar(n: n-2, ch: " "))\(ch)\n"
+    }
+    result += "\(repChar(n: n, ch: ch))\n"
+    
+    return result
 }
+
+print("Repeat char: \(repChar(n: 5, ch: "*"))")
+print("Rect char stroken: \(rectCharStroken(n: 5))")
+print("Rect char stroken: \(rectCharStroken(n: 1))")
+

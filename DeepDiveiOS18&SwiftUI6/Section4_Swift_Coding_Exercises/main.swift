@@ -165,17 +165,21 @@ func sumNPower(n: Int, power: Int) -> Double {
 }
 
 func triangleNumbersSquared(n: Int) -> Double {
-    // 1ˆ3 + 2ˆ3 + 3ˆ3 + ... + nˆ3
     let triangleNumber = sumNPower(n: n, power: 1)
     return triangleNumber*triangleNumber
 }
 
 func sumOfCubes(n: Int) -> Double {
-    // (1 + 2 + 3 + ... + n)ˆ2
     return sumNPower(n: n, power: 3)
 }
 
 for n in 1..<10 {
+    // Illustration:
+    //
+    // (1+2+3+4)ˆ2 = 1ˆ3 + 2ˆ3 + 3ˆ3 + 4ˆ3
+    // Conjecture:
+    // (1+2+3+4...n)ˆ2 = 1ˆ3 + 2ˆ3 + 3ˆ3 + 4ˆ3 + ... + nˆ3
+    
     print(triangleNumbersSquared(n: n))
     print(sumOfCubes(n: n))
     print("")

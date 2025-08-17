@@ -184,3 +184,26 @@ for n in 1..<10 {
     print(sumOfCubes(n: n))
     print("")
 }
+
+func myCosine(_ x: Double, threshold: Double = pow(10.0, -6.0)) -> Double {
+    var result = 0.0
+    var term = 1.0
+    var n = 0
+    
+    while abs(term) > threshold {
+        result += term
+        n += 1
+        // next term: (-1)^n * x^(2n) / (2n)!
+        term *= -(x * x) / Double((2 * n - 1) * (2 * n))
+    }
+
+    return result
+}
+
+let m = 18.0
+for i in stride(from: 0, to: m, by: 1) {
+    let angle: Double = (2 * Double.pi * i) / m
+    print("cos(\(angle)) = \(cos(angle))")
+    print("myCosine(\(angle)) = \(myCosine(angle))")
+    print("")
+}
